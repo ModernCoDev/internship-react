@@ -1,0 +1,53 @@
+.profile {
+  width: 50%;
+  max-width: 500px;
+  margin: 20vh auto 3vh;
+}
+
+.profile h1 {
+  margin: 0 0 1rem;
+  text-align: center;
+}
+
+.profile span {
+  margin: 1rem 0;
+}
+
+.update-profile {
+  display: block;
+  background-color: #4681ff;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 0.3rem;
+  margin: 1rem 0 0;
+  padding: 0.5rem 0;
+}
+
+.update-profile:hover {
+  background-color: #1f60ee;
+}
+
+.logout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+.logout button {
+  padding: 0.4rem 1.6rem;
+  border: 1px solid #4681ff;
+  border-radius: 0.3rem;
+  background-color: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4681ff;
+}
+
+.logout button:hover {
+  cursor: pointer;
+  background-color: #4681ff;
+  color: white;
+  /* text-decoration: underline #4681ff solid 0.1rem; */
+}

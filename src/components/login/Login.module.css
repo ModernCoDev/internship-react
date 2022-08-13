@@ -1,0 +1,18 @@
+.login {
+  width: 50%;
+  max-width: 500px;
+  margin: 20vh auto;
+  padding: 1rem;
+}
+
+.login h1 {
+  font-size: 2rem;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.link {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
