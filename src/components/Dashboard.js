@@ -1,20 +1,25 @@
 import { Fragment, useState } from 'react';
 import Card from './ui/Card';
-import { useAuth } from '../contexts/AuthContext';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { getAuth, signOut } from 'firebase/auth';
+import { logout } from '../store/reducers/userReducer';
 
 import classes from './Dashboard.module.css';
 
 const Dashboard = () => {
   const [error, setError] = useState('');
-  const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
+  const currentUser = useSelector(state => state.user.user);
+  const dispatch = useDispatch();
+  const auth = getAuth();
 
   const logoutHandler = async () => {
     setError('');
 
     try {
-      await logout();
+      signOut(auth);
+      dispatch(logout())
       navigate('/login');
     } catch {
       setError('Failed to log out');

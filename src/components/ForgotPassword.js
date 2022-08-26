@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import useInput from '../hooks/useInput';
-import { useAuth } from '../contexts/AuthContext';
 import { Link } from 'react-router-dom';
+import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
 import Card from '../components/ui/Card';
 
 import classes from './ForgotPassword.module.css';
 
 const ForgotPassword = () => {
-  const { resetPassword } = useAuth();
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
+  const auth = getAuth();
 
   const { value: enteredEmail, valueChangeHandler: emailChangeHandler } = useInput(() => {});
 
@@ -22,7 +22,7 @@ const ForgotPassword = () => {
       setMessage("");
       setError('');
       setLoading(true);
-      await resetPassword(enteredEmail);
+      await sendPasswordResetEmail(auth, enteredEmail);
       setMessage("Password reset email sent! Check your inbox for further information.");
     } catch (error) {
       if (error.code === 'auth/user-not-found') {

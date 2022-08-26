@@ -1,15 +1,17 @@
 import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
-import { useAuth } from '../../contexts/AuthContext';
+import { getAuth, updateEmail, updatePassword } from 'firebase/auth';
+import { useSelector } from 'react-redux/es/exports';
 
 import classes from './UpdateProfileForm.module.css';
 
 const UpdateProfileForm = () => {
-  const { currentUser, updateEmail, updatePassword } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const currentUser = useSelector(state => state.user.user)
+  const auth = getAuth();
 
   const validRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -45,8 +47,6 @@ const UpdateProfileForm = () => {
     formIsValid = true;
   }
 
-  console.log(enteredEmailIsValid, enteredPasswordIsValid, confirmPasswordIsValid)
-
   const formSubmissionHandler = async (event) => {
     event.preventDefault();
 
@@ -57,12 +57,13 @@ const UpdateProfileForm = () => {
     if(!enteredEmailIsValid) return;
 
     const promises = [];
+    const user = auth.currentUser;
     if (enteredEmail.trim().length !== 0 && enteredEmail !== currentUser.email) {
-      promises.push(updateEmail(enteredEmail));
+      promises.push(updateEmail(user, enteredEmail));
     }
 
     if (confirmPassword) {
-      promises.push(updatePassword(confirmPassword));
+      promises.push(updatePassword(user, confirmPassword));
     }
 
     try {

@@ -1,15 +1,18 @@
 import { Fragment, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import useInput from '../../hooks/useInput';
-import { useAuth } from '../../contexts/AuthContext';
+import { login } from '../../store/reducers/userReducer';
 
 import classes from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { login } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const auth = getAuth();
 
   const { value: enteredEmail, valueChangeHandler: emailChangeHandler } = useInput(() => {});
 
@@ -21,15 +24,20 @@ const LoginForm = () => {
     try {
       setError('');
       setLoading(true);
-      await login(enteredEmail, enteredPassword);
+      const userAuth = await signInWithEmailAndPassword(auth, enteredEmail, enteredPassword);
+      dispatch(
+        login({
+          email: userAuth.user.email,
+          uid: userAuth.user.uid
+        })
+      );
       navigate('/dashboard');
     } catch (error) {
-      if(error.code === "auth/user-not-found" || "auth/wrong-password"){
-        setError("The email or password is incorrect.");
+      if (error.code === 'auth/user-not-found' || 'auth/wrong-password') {
+        setError('The email or password is incorrect.');
       } else {
         setError('Failed to login. Something went wrong.');
       }
-      
     }
 
     setLoading(false);

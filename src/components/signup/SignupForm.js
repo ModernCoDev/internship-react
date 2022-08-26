@@ -1,15 +1,15 @@
 import { Fragment, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import useInput from '../../hooks/useInput';
-import { useAuth } from '../../contexts/AuthContext';
 
 import classes from './SignupForm.module.css';
 
 const SignupForm = () => {
-  const { signup } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const auth = getAuth();
 
   const validRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -54,7 +54,7 @@ const SignupForm = () => {
     try {
       setError('');
       setLoading(true);
-      await signup(enteredEmail, enteredPassword);
+      await createUserWithEmailAndPassword(auth, enteredEmail, enteredPassword);
       navigate('/dashboard');
     } catch (error){
       if(error.code === "auth/email-already-in-use") {
