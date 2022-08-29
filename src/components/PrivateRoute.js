@@ -4,9 +4,11 @@ import { useSelector } from 'react-redux/es/exports';
 import { Navigate } from 'react-router-dom';
 
 const PrivateRoute = ({ children }) => {
-  const currentUser = useSelector(state => state.user.user);
+  let { user, loading } = useSelector((state) => state.user);
 
-  return currentUser ? children : <Navigate to="/login" />;
+  if(loading) return null;
+
+  return user ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

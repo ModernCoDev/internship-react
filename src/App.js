@@ -18,7 +18,8 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    onAuthStateChanged(auth, async (user) => {
+
+    onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(
           login({
@@ -41,22 +42,8 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route
-            path="/dashboard"
-            element={
-              <PrivateRoute>
-                <Dashboard />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/update-profile"
-            element={
-              <PrivateRoute>
-                <UpdateProfile />
-              </PrivateRoute>
-            }
-          />
+          <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>}/>
+          <Route path="/update-profile" element={<PrivateRoute><UpdateProfile /></PrivateRoute>}/>
         </Routes>
       </Router>
     </div>
