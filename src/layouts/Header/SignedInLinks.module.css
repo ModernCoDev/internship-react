@@ -2,7 +2,9 @@
   display: inline;
   border: 2px solid #ddd;
   border-radius: 0.2rem;
-  padding: 0.3rem 0.7rem;
+  /* padding: 0.3rem 0.7rem; */
+  font-size: 0.9em;
+  padding: 0.5vh 1.3vh;
   background-color: inherit;
   color: #ddd;
   cursor: pointer;

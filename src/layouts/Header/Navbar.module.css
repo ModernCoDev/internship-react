@@ -2,6 +2,7 @@
   background-color: #777;
   width: 100%;
   height: 7vh;
+  font-size: 2.5vh;
 }
 
 .navbar ul {
@@ -13,7 +14,7 @@
 
 .navbar li {
   display: inline;
-  margin: 0.8rem;
+  margin: 1.8vh;
 }
 
 .navbar a {
@@ -22,5 +23,5 @@
 }
 
 .logo {
-  font-size: 1.3rem;
+  font-size: 3vh;
 }
