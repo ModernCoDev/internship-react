@@ -3,21 +3,21 @@ import { NavLink } from 'react-router-dom';
 import SingedOutLinks from './SignedOutLinks';
 
 import classes from './Navbar.module.css';
+import SignedInLinks from './SignedInLinks';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-  let activeStyle = {
-    
-  };
+  const {isLoggedIn } = useSelector(state => state.user)
 
   return (
     <nav className={classes.navbar}>
       <ul>
         <li className={classes.logo}>
-          <NavLink to="/" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
+          <NavLink to="/" >
             React-Internship
           </NavLink>
         </li>
-        <div><SingedOutLinks /></div>
+        {isLoggedIn ? <SignedInLinks /> : <SingedOutLinks />}
       </ul>
     </nav>
   );

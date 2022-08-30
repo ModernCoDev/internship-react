@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 const SignedOutLinks = () => {
@@ -7,7 +7,7 @@ const SignedOutLinks = () => {
   };
 
   return (
-    <Fragment>
+    <div>
       <li>
         <NavLink to="/login" style={({ isActive }) => (isActive ? activeStyle : undefined)}>
           Login
@@ -18,7 +18,7 @@ const SignedOutLinks = () => {
           Signup
         </NavLink>
       </li>
-    </Fragment>
+    </div>
   );
 };
 

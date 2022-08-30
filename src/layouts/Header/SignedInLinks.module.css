@@ -1,0 +1,14 @@
+.logout {
+  display: inline;
+  border: 2px solid #ddd;
+  border-radius: 0.2rem;
+  padding: 0.3rem 0.7rem;
+  background-color: inherit;
+  color: #ddd;
+  cursor: pointer;
+}
+
+.logout:hover {
+  background-color: #ddd;
+  color: #777;
+}
