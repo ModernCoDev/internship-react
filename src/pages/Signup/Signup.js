@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Card from '../ui/Card';
+import Card from '../../components/Card/Card';
 
 import classes from './Signup.module.css';
 import SignupForm from './SignupForm';

@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import useInput from '../../hooks/useInput';
-import { login } from '../../store/reducers/userReducer';
+import { login } from '../../services/reducers/userReducer';
 
 import classes from './LoginForm.module.css';
 

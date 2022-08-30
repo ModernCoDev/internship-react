@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import './App.css';
-import Signup from './components/signup/Signup';
-import Login from './components/login/Login';
+import Signup from './pages/Signup/Signup';
+import Login from './pages/Login/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Homepage from './components/Homepage';
-import Dashboard from './components/Dashboard';
-import PrivateRoute from './components/PrivateRoute';
-import ForgotPassword from './components/ForgotPassword';
-import UpdateProfile from './components/update-profile/UpdateProfile';
-import Navbar from './components/layout/Navbar';
+import Homepage from './pages/Homepage/Homepage';
+import Dashboard from './pages/Dashboard/Dashboard';
+import PrivateRoute from './routes/PrivateRoute';
+import ForgotPassword from './pages/ForgotPassword/ForgotPassword';
+import UpdateProfile from './pages/UpdateProfile/UpdateProfile';
+import Navbar from './layouts/Header/Navbar';
 import { useDispatch } from 'react-redux';
-import { login, logout } from './store/reducers/userReducer';
+import { login, logout } from './services/reducers/userReducer';
 import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from './firebase';
+import { auth } from './config/firebase';
 
 function App() {
   const dispatch = useDispatch();

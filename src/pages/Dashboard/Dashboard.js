@@ -1,9 +1,9 @@
 import { Fragment, useState } from 'react';
-import Card from './ui/Card';
+import Card from '../../components/Card/Card';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { getAuth, signOut } from 'firebase/auth';
-import { logout } from '../store/reducers/userReducer';
+import { logout } from '../../services/reducers/userReducer';
 
 import classes from './Dashboard.module.css';
 

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './App';
-import rootReducer from './store/rootReducer';
+import rootReducer from './services/reducers/rootReducer';
 
 const store = configureStore({ reducer: rootReducer });
 

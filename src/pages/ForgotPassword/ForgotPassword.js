@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import useInput from '../hooks/useInput';
+import useInput from '../../hooks/useInput';
 import { Link } from 'react-router-dom';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 
-import Card from '../components/ui/Card';
+import Card from '../../components/Card/Card';
 
 import classes from './ForgotPassword.module.css';
 
