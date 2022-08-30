@@ -7,7 +7,12 @@ import SignedInLinks from './SignedInLinks';
 import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const {isLoggedIn } = useSelector(state => state.user)
+  const {isLoggedIn, loading } = useSelector(state => state.user)
+
+  let links = isLoggedIn ? <SignedInLinks /> : <SingedOutLinks />;
+  if(loading) {
+    links = null
+  } 
 
   return (
     <nav className={classes.navbar}>
@@ -17,7 +22,7 @@ const Navbar = () => {
             React-Internship
           </NavLink>
         </li>
-        {isLoggedIn ? <SignedInLinks /> : <SingedOutLinks />}
+        {links}
       </ul>
     </nav>
   );
