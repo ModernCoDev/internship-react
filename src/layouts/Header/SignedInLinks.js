@@ -21,7 +21,8 @@ const SignedInLinks = () => {
   };
 
   let activeStyle = {
-    color: '#ccc'
+    backgroundColor: "#ccc",
+    color: "#555",
   };
 
   return (

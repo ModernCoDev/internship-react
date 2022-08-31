@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 
 const SignedOutLinks = () => {
   let activeStyle = {
-    color: "#ccc",
+    backgroundColor: "#ccc",
+    color: "#555",
   };
 
   return (
