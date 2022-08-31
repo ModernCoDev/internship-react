@@ -7,7 +7,7 @@ import UpdateProfileForm from './UpdateProfileForm';
 
 const UpdateProfile = () => {
   return (
-    <section className={classes.signup}>
+    <section className={classes["update-profile"]}>
       <Card>
         <h1>Update Profile</h1>
         <UpdateProfileForm />

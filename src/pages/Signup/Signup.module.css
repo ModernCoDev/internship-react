@@ -16,3 +16,10 @@
   width: 100%;
   text-align: center;
 }
+
+@media all and (max-width: 500px) {
+  .signup {
+    margin: 10vh 0;
+    width: 100%;
+  }
+}

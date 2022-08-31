@@ -60,3 +60,9 @@
   padding: 1rem;
   margin: 2rem 0;
 }
+
+@media all and (max-width: 500px) {
+  .profile {
+    width: 80%;
+  }
+}

@@ -1,4 +1,4 @@
-.signup {
+.update-profile {
   display: block;
   width: 50%;
   max-width: 500px;
@@ -6,7 +6,7 @@
   padding: 1rem;
 }
 
-.signup h1 {
+.update-profile h1 {
   font-size: 2rem;
   text-align: center;
   margin: 1rem 0;
@@ -15,4 +15,11 @@
 .link {
   width: 100%;
   text-align: center;
+}
+
+@media all and (max-width: 500px) {
+  .update-profile {
+    margin: 10vh 0;
+    width: 100%;
+  }
 }
