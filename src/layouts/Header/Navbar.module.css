@@ -1,11 +1,7 @@
 .navbar {
   background-color: #777;
-  height: 7vh;
-  font-size: 2vh;
-}
-
-.navbar div {
-  margin: 0 0 0 0;
+  height: 4rem;
+  font-size: 1.2rem;
 }
 
 .navbar ul {
@@ -17,19 +13,27 @@
 
 .navbar li {
   display: inline;
-  margin: 1.8vh 0;
-}
-
-.navbar li:last-child {
-  margin: 1.8vh 2vh;
+  margin: 0.45em 0.5em;
 }
 
 .navbar a {
-  padding: 1.2em;
+  padding: 0 0.2rem 0.3rem;
   color: white;
   text-decoration: none;
 }
 
 .logo {
-  font-size: 3vh;
+  /* padding-left: 0.5em; */
+  font-size: 1.6em;
+}
+
+@media all and (max-width: 450px) {
+  .navbar {
+    font-size: 0.9rem;
+  }
+
+  .navbar li {
+    display: inline;
+    margin: 0.7em 0.5em;
+  }
 }
