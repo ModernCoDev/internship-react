@@ -17,9 +17,9 @@
   text-align: center;
 }
 
-@media all and (max-width: 500px) {
+@media all and (max-width: 800px) {
   .update-profile {
-    margin: 10vh 0;
+    margin: 15vh auto;
     width: 100%;
   }
 }
